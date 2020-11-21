@@ -6,7 +6,7 @@ import {
   endOfISOWeek,
   endOfMonth,
   endOfYear,
-  getDay,
+  getDate,
   getWeek,
   getYear,
   isLeapYear,
@@ -167,7 +167,7 @@ const createHoliday = (name, date) => ({
 
 export const createDate = (date, locale) => ({
   date,
-  day: getDay(date),
+  day: getDate(date),
   name: getFormattedDay(date, locale),
   weekNumber: getWeek(date),
   formattedLongDate: getFormattedLongDate(date, locale),
