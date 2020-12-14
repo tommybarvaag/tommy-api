@@ -9,11 +9,11 @@
   },
   "dependencies": {
     "date-fns": "^2.16.1",
-    "next": "10.0.2",
+    "next": "10.0.3",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },
   "devDependencies": {
-    "prettier": "^2.2.0"
+    "prettier": "^2.2.1"
   }
 }
