@@ -11,8 +11,6 @@ export default (req, res) => {
     query: { year, locale }
   } = req;
 
-  console.log(locale);
-
   const date = getFirstDayOfYear(year);
   const allWeeksInYear = getAllWeeksInYear(date, locale);
 

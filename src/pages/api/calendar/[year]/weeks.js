@@ -1,5 +1,6 @@
 import {
   createDate,
+  getAllDaysInWeek,
   getAllWeeksInYear,
   getFirstDayOfYear,
   yearIsLeapYear
