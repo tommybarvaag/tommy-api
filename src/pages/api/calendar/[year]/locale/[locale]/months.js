@@ -15,8 +15,9 @@ export default async function months(req, res) {
   const date = getFirstDayOfYear(year);
   const allMonthsInYear = getAllMonthsInYear(date);
 
-  res.statusCode = 200;
-  res.json({
+  res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+
+  return res.status(200).json({
     year,
     isLeapYear: yearIsLeapYear(year),
     months: allMonthsInYear.map(monthDate => ({
