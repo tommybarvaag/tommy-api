@@ -7,9 +7,8 @@ export default function Home() {
         <title>Tommy API</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main>
-        <h1>Welcome to Tommy API</h1>
+        <h1>Welcome</h1>
       </main>
       <footer></footer>
     </div>

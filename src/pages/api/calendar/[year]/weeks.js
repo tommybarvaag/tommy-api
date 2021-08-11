@@ -6,7 +6,7 @@ import {
   yearIsLeapYear
 } from "../../../../utils/calendar/calendarUtils";
 
-export default (req, res) => {
+export default async function weeks(req, res) {
   const {
     query: { year }
   } = req;
@@ -14,10 +14,11 @@ export default (req, res) => {
   const date = getFirstDayOfYear(year);
   const allWeeksInYear = getAllWeeksInYear(date);
 
-  res.statusCode = 200;
-  res.json({
+  res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+
+  return res.status(200).json({
     year,
     isLeapYear: yearIsLeapYear(year),
     weeks: allWeeksInYear.map(weekDay => getAllDaysInWeek(weekDay).map(createDate))
   });
-};
+}

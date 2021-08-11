@@ -7,7 +7,7 @@ import {
 } from "../../../../../../utils/calendar/calendarUtils";
 import { getFormattedMonth } from "../../../../../../utils/dateFnsUtils";
 
-export default (req, res) => {
+export default async function months(req, res) {
   const {
     query: { year, locale }
   } = req;
@@ -15,8 +15,9 @@ export default (req, res) => {
   const date = getFirstDayOfYear(year);
   const allMonthsInYear = getAllMonthsInYear(date);
 
-  res.statusCode = 200;
-  res.json({
+  res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+
+  return res.status(200).json({
     year,
     isLeapYear: yearIsLeapYear(year),
     months: allMonthsInYear.map(monthDate => ({
@@ -24,4 +25,4 @@ export default (req, res) => {
       days: getAllDaysInMonth(monthDate).map(date => createDate(date, locale))
     }))
   });
-};
+}
