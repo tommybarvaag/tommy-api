@@ -7,7 +7,7 @@ import {
 } from "../../../../../../utils/calendar/calendarUtils";
 import { getFormattedMonth } from "../../../../../../utils/dateFnsUtils";
 
-export default (req, res) => {
+export default async function months(req, res) {
   const {
     query: { year, locale }
   } = req;
@@ -24,4 +24,4 @@ export default (req, res) => {
       days: getAllDaysInMonth(monthDate).map(date => createDate(date, locale))
     }))
   });
-};
+}
